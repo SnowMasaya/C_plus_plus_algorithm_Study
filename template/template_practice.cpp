@@ -20,7 +20,9 @@ template <class A_Type> A_Type template_practice<A_Type>::add(A_Type x, A_Type y
 
 int main()
 {
+	template_direction tempalte_test_up = template_up;
 	template_practice <double> template_practice_class;
 	cout << "Add " << template_practice_class.add(10.0, 1.0) << endl;
 	cout << "Multiply " << template_practice_class.multiply(10.0, 2.0) << endl;
+	cout << "Num Test " << tempalte_test_up << endl;
 }
