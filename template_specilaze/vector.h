@@ -9,6 +9,7 @@
 #define VECTOR_H_
 #include <iostream>
 using namespace std;
+#define INCREMENT(x) x++
 
 template <typename T> class sortedVector{
 public:
@@ -37,6 +38,8 @@ public:
 		vec_data[pos] = val;
       	cout << "Show Value " << vec_data[pos] << endl;
       	cout << "Show Position " << pos << endl;
+      	int increment_value = INCREMENT(vec_data[pos]);
+      	cout << "Increment Position " << increment_value << endl;
 	}
 private:
 	T *vec_data;
