@@ -6,8 +6,6 @@
  */
 
 #include "g_vector.h"
-#include <iostream>
-using namespace std;
 
 namespace gw{
 
