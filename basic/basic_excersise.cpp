@@ -1,0 +1,80 @@
+/*
+ * basic_excersise.cpp
+ *
+ *  Created on: Nov 7, 2016
+ *      Author: masayaogushi
+ */
+
+#include "basic_excersise.h"
+#include "iostream"
+#include "vector"
+using namespace std;
+
+basic_excersise::basic_excersise() {
+	// TODO Auto-generated constructor stub
+
+}
+
+basic_excersise::~basic_excersise() {
+	// TODO Auto-generated destructor stub
+}
+
+void increment()
+{
+	int v[] = {0, 1, 2, 3};
+
+	for (auto& x : v)
+	{
+        cout << x << endl;
+	}
+}
+
+int count_x(char *p, char x)
+{
+	if(p==nullptr) return 0;
+	int count = 0;
+	for(; *p != 0; ++p)
+	{
+		if(*p==x)
+		{
+			++count;
+		}
+	}
+	return count;
+}
+
+vector<double> vector_init(int s)
+{
+	vector<double> v(s);
+	return v;
+}
+
+double read_and_sum(int s)
+{
+	vector<double> v = vector_init(s);
+	for (int i = 0; i != s; ++i)
+	{
+		cin >> v[i];
+	}
+	double sum =0;
+	for (int i = 0; i != s; ++i)
+	{
+		sum += v[i];
+	}
+	return sum;
+
+}
+
+
+int main(){
+	//Excerise 1
+	//increment();
+	//Excerise 2
+	//char p[] = {'x', 'y', 'z', 'x'};
+	//char char_code = 'x';
+	//cout << count_x(p, char_code) << endl;
+	//Excerise 3
+	int read_size = 3;
+	cout << read_and_sum(read_size) << endl;
+	return 0;
+}
