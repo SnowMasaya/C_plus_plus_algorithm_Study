@@ -8,6 +8,9 @@
 #include "basic_excersise.h"
 #include "iostream"
 #include "vector"
+#include "cmath"
+#include <math.h>
+#include "Vector_excerisize.h"
 using namespace std;
 
 basic_excersise::basic_excersise() {
@@ -65,6 +68,23 @@ double read_and_sum(int s)
 
 }
 
+// Don't work
+//Traffic_light& operator++(Traffic_light& t)
+//{
+//	switch(t){
+//	case Traffic_light::green:
+//		return t=Traffic_light::yellow;
+//	case Traffic_light::yellow:
+//		return t=Traffic_light::red;
+//	case Traffic_light::red:
+//		return t=Traffic_light::green;
+//	}
+//}
+
+double sqrt_test(double d)
+{
+	return sqrt(d);
+}
 
 int main(){
 	//Excerise 1
@@ -74,7 +94,12 @@ int main(){
 	//char char_code = 'x';
 	//cout << count_x(p, char_code) << endl;
 	//Excerise 3
-	int read_size = 3;
-	cout << read_and_sum(read_size) << endl;
+	//int read_size = 3;
+	//cout << read_and_sum(read_size) << endl;
+	//Excerise 4 not clear
+	//Traffic_light next = ++light;
+	//Excerise 5
+	//cout << sqrt_test(4) << endl;
+
 	return 0;
 }
