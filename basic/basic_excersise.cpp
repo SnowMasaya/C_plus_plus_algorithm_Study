@@ -10,6 +10,8 @@
 #include "vector"
 #include "cmath"
 #include <math.h>
+#include <complex>
+#include <assert.h>
 #include "Vector_excerisize.h"
 using namespace std;
 
@@ -100,6 +102,12 @@ int main(){
 	//Traffic_light next = ++light;
 	//Excerise 5
 	//cout << sqrt_test(4) << endl;
-
+	//Excerise 6
+	Vector_excerisize vector_excerisize_instance(4);
+	cout << vector_excerisize_instance.operator[](2) << endl;
+	cout << vector_excerisize_instance.operator[](10) << endl;
+	Vector_excerisize vector_excerisize_instance2(-4);
+    int * a = NULL;
+    assert(a == NULL);
 	return 0;
 }
