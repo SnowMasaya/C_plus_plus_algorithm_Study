@@ -90,6 +90,19 @@ node* find_max (node* p_tree)
 	return find_max( p_tree->p_right );
 }
 
+node* find_min (node* p_tree)
+{
+	if( p_tree == NULL)
+	{
+		return NULL;
+	}
+	if ( p_tree->p_left == NULL)
+	{
+		return p_tree;
+	}
+	return find_min( p_tree->p_left );
+}
+
 node* remove_max_node (node* p_tree, node* p_max_node)
 {
 	if ( p_tree == NULL )
@@ -159,6 +172,33 @@ void showNode (node* p_tree)
 	}
 }
 
+node* sortFunction (node* p_tree, node* value_node)
+{
+    cout << value_node->key_value << endl;
+	p_tree = remove( p_tree, value_node->key_value );
+	return p_tree;
+}
+
+void reverseSortShow(node* p_tree)
+{
+	node* value_node = find_min( p_tree );
+	p_tree = sortFunction( p_tree, value_node);
+	if ( p_tree != NULL )
+	{
+	    reverseSortShow( p_tree );
+	}
+}
+
+void sortShow(node* p_tree)
+{
+	node* value_node = find_max( p_tree );
+	p_tree = sortFunction( p_tree, value_node);
+	if ( p_tree != NULL )
+	{
+	    sortShow( p_tree );
+	}
+}
+
 int main()
 {
 	node* node_test = NULL;
@@ -170,7 +210,8 @@ int main()
 	node_test = insert(node_test, 4);
 	node_test = insert(node_test, 11);
 	node_test = insert(node_test, 14);
-	showNode(node_test);
+	//reverseSortShow(node_test);
+	sortShow(node_test);
 	//search_node_test = search_binary(node_test, 5);
 	//cout << search_node_test->key_value << endl;
 	//destroy_tree(search_node_test);
