@@ -49,7 +49,7 @@ void printPointer(int ***test_p_p)
 	}
 }
 
-int main(){
+int tmp4_main(){
 	int ***p_p_x;
 	p_p_x = new int**[3];
 
