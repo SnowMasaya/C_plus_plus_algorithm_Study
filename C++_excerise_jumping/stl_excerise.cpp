@@ -30,7 +30,7 @@ void displayMap (map<string, string> map_to_print)
 
 }
 
-int main()
+int tmp1()
 {
     vector<int> a_vector;
 	a_vector.push_back(1);
