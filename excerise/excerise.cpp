@@ -65,7 +65,7 @@ long ReverseBits(long x){
 	const int kBitMask = 0xFFFF;
 }
 
-int main(){
+int tmp_main(){
 
 	unsigned int x = 5;
 	unsigned int y;
