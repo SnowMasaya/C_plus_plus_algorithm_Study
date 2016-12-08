@@ -19,32 +19,12 @@ insert_sort::~insert_sort() {
 
 void insert_sort::insert_method(int *data_array){
 	int tmp;
-	for(int i = 1; i < ARRAY_SIZE - 1; i++){
+	int j;
+	for(int i = 1; i < ARRAY_SIZE; i++){
 		tmp = data_array[i];
-		if(data_array[i - 1] < tmp){
-			j = i;
-			while(j > 0 & tmp > data_array[j - 1]){
-			    data_array[j] = data_array[j - 1];
-				j--;
-			}
-			data[j] = tmp;
+		for(j = i; j > 0 && data_array[j - 1] > tmp; j--){
+			data_array[j] = data_array[j - 1];
 		}
-	}
-}
-
-
-void insert_sort::insert_method(int *data_array){
-
-	int tmp;
-	for(int i = 1; i < ARRAY_SIZE - 1; i++){
-		tmp = data_array[i];
-		if(data_array[i - 1] > tmp){
-			int j = i;
-		    while(j > 0 & tmp > data_array[j - 1]){
-		    	data_array[j] = data_array[j - 1];
-		    	--j;
-		    }
-		    data_array[j] = tmp;
-		}
+	    data_array[j] = tmp;
 	}
 }

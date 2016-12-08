@@ -8,6 +8,8 @@
 #include "excerise.h"
 #include "merge_sort.h"
 #include "insert_sort.h"
+#include "counting_sort.h"
+#include "quick.h"
 #define ARRAY_SIZE 7
 #include <iostream>
 using namespace std;
@@ -29,11 +31,17 @@ void show_array(int *sort_data){
 
 int main(){
 	int array_data[ARRAY_SIZE] = {0, 3, 2, 4, 5, 1, 9};
-	merge_sort *merge_sort_instance = new merge_sort();
-	merge_sort_instance->merge_method(array_data, 0, ARRAY_SIZE);
-	show_array(array_data);
-	insert_sort *insert_sort_instance = new insert_sort();
-	insert_sort_instance->insert_method(array_data);
+    //merge_sort *merge_sort_instance = new merge_sort();
+	//merge_sort_instance->merge_method(array_data, 0, ARRAY_SIZE);
+	//show_array(array_data);
+	//insert_sort *insert_sort_instance = new insert_sort();
+	//insert_sort_instance->insert_method(array_data);
+	//show_array(array_data);
+	//quick *quick_sort_instance = new quick();
+	//quick_sort_instance->quick_method(array_data, 0, ARRAY_SIZE);
+	//show_array(array_data);
+	counting_sort *couting_sort_instance = new counting_sort();
+	couting_sort_instance->counting_sort_method(array_data);
 	show_array(array_data);
 	return 0;
 }
