@@ -11,6 +11,7 @@
 #include "counting_sort.h"
 #include "binary_tree.h"
 #include "quick.h"
+#include "graph.h"
 #define ARRAY_SIZE 7
 #include <iostream>
 using namespace std;
@@ -44,21 +45,32 @@ int main(){
 	//counting_sort *couting_sort_instance = new counting_sort();
 	//couting_sort_instance->counting_sort_method(array_data);
 	//show_array(array_data);
-	binary_tree *binary_tree_instance = new binary_tree();
-	node *p_tree = binary_tree_instance->insert(NULL, 10);
-	binary_tree_instance->insert(p_tree, 5);
-	binary_tree_instance->insert(p_tree, 12);
-	binary_tree_instance->insert(p_tree, 6);
-	binary_tree_instance->insert(p_tree, 4);
-	binary_tree_instance->insert(p_tree, 11);
-	binary_tree_instance->insert(p_tree, 14);
-	binary_tree_instance->nodeShow(p_tree);
-	int find_value = binary_tree_instance->search(p_tree, 20);
-	cout << "find:" << find_value << endl;
-	node *max_value_node = binary_tree_instance->find_max(p_tree);
-	cout << "max:" << max_value_node->key_value << endl;
-	node *min_value_node = binary_tree_instance->find_min(p_tree);
-	cout << "min:" << min_value_node->key_value << endl;
-	binary_tree_instance->destroy_tree(p_tree);
+	//binary_tree *binary_tree_instance = new binary_tree();
+	//node *p_tree = binary_tree_instance->insert(NULL, 10);
+	//binary_tree_instance->insert(p_tree, 5);
+	//binary_tree_instance->insert(p_tree, 12);
+	//binary_tree_instance->insert(p_tree, 6);
+	//binary_tree_instance->insert(p_tree, 4);
+	//binary_tree_instance->insert(p_tree, 11);
+	//binary_tree_instance->insert(p_tree, 14);
+	//binary_tree_instance->nodeShow(p_tree);
+	//int find_value = binary_tree_instance->search(p_tree, 20);
+	//cout << "find:" << find_value << endl;
+	//node *max_value_node = binary_tree_instance->find_max(p_tree);
+	//cout << "max:" << max_value_node->key_value << endl;
+	//node *min_value_node = binary_tree_instance->find_min(p_tree);
+	//cout << "min:" << min_value_node->key_value << endl;
+	//binary_tree_instance->destroy_tree(p_tree);
+	graph *graph_instance = new graph(4);
+	graph_instance->addEdge(0, 1);
+	graph_instance->addEdge(0, 2);
+	graph_instance->addEdge(1, 2);
+	graph_instance->addEdge(2, 0);
+	graph_instance->addEdge(2, 3);
+	graph_instance->addEdge(3, 3);
+	cout << "Following is Depth First Traversal (starting from vertex 2) " << endl;
+	graph_instance->depth_first_search(2);
+	cout << "Following is Breadth First Traversal (starting from vertex 2) " << endl;
+	graph_instance->breadth_first_search(2);
 	return 0;
 }

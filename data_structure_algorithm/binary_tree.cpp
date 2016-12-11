@@ -95,7 +95,7 @@ node* remove_max_node(node *p_tree, node *p_max_node){
 		return NULL;
 	}
 	if(p_tree == p_max_node){
-		return p_tree->left;
+		return p_tree->p_left;
 	}else{
 		remove_max_node(p_tree->p_right, p_max_node);
 	}
