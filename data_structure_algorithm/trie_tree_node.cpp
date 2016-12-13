@@ -37,7 +37,6 @@ void trie_tree_node::insert(char text[], int index){
 void trie_tree_node::lexicographPrint(trie_tree_node *trie_tree, vector<char> printUtilVectr){
 	int i;
 	bool noChild = true;
-	vector<int>::iterator itr = trie_tree->occurrences.begin();
 
 	for(i = 0; i < ALPHABETS; i++){
 		if(trie_tree->children[i] != NULL){
