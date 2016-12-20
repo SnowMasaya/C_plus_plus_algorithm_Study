@@ -6,6 +6,8 @@
  */
 
 #include "quick.h"
+#include <iostream>
+using namespace std;
 
 quick::quick() {
 	// TODO Auto-generated constructor stub
@@ -45,7 +47,7 @@ void quick::quick_method(int *data_array, int left, int right){
 		int i = left;
 		int j = right;
 		int tmp;
-		int piviot = med3(data_array[i], data_array[i + (j - i) / 2], data_array[j]);
+		int piviot = med3(data_array[i], data_array[(i + j) / 2], data_array[j]);
 		while(1){
 			while (data_array[i] < piviot) i++;
 			while (piviot < data_array[j]) j--;
