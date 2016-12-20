@@ -50,7 +50,7 @@ void binary_tree::nodeShow(node* p_tree){
 
 int binary_tree::search(node *p_tree, int key){
 	if(p_tree == NULL){
-		return NULL;
+		return 0;
 	}
 	if(p_tree->key_value == key){
 		return p_tree->key_value;
@@ -60,9 +60,10 @@ int binary_tree::search(node *p_tree, int key){
 	}else if(key > p_tree->key_value){
 		return search(p_tree->p_right, key);
 	}
+	return 0;
 }
 
-node binary_tree::destroy_tree(node *p_tree){
+void binary_tree::destroy_tree(node *p_tree){
 	if(p_tree != NULL){
 	    destroy_tree(p_tree->p_left);
 	    destroy_tree(p_tree->p_right);
@@ -99,6 +100,7 @@ node* remove_max_node(node *p_tree, node *p_max_node){
 	}else{
 		remove_max_node(p_tree->p_right, p_max_node);
 	}
+	return NULL;
 }
 
 node* binary_tree::remove(node *p_tree, int remove_value){
@@ -112,9 +114,9 @@ node* binary_tree::remove(node *p_tree, int remove_value){
 	    	return p_right_sub_tree;
 	    }
 	    if(p_tree->p_right == NULL){
-	    	node *p_right_sub_tree = p_tree->p_right;
+	    	node *p_left_sub_tree = p_tree->p_left;
 	    	delete p_tree;
-	    	return p_right_sub_tree;
+	    	return p_left_sub_tree;
 	    }
 	    node *p_max_node = find_max(p_tree->p_left);
 	    p_max_node->p_left = remove_max_node(p_tree->p_left, p_max_node);
@@ -126,4 +128,5 @@ node* binary_tree::remove(node *p_tree, int remove_value){
 	}else{
 		remove(p_tree->p_right, remove_value);
 	}
+	return NULL;
 }
