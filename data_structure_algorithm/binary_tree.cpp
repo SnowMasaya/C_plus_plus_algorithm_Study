@@ -87,7 +87,7 @@ node* binary_tree::find_min(node *p_tree){
 	}else if(p_tree->p_left == NULL){
 		return p_tree;
 	}else{
-		return find_max(p_tree->p_left);
+		return find_min(p_tree->p_left);
 	}
 }
 
