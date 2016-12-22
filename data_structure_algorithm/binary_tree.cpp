@@ -67,7 +67,7 @@ void binary_tree::destroy_tree(node *p_tree){
 	if(p_tree != NULL){
 	    destroy_tree(p_tree->p_left);
 	    destroy_tree(p_tree->p_right);
-		delete p_tree;
+	    delete p_tree;
 	}
 }
 
