@@ -3,6 +3,8 @@
  *
  *  Created on: Dec 12, 2016
  *      Author: masayaogushi
+ *      Longest Increasing Subsequence
+ *          http://www.geeksforgeeks.org/dynamic-programming-set-3-longest-increasing-subsequence/
  */
 
 #include "dynamic_programing.h"
