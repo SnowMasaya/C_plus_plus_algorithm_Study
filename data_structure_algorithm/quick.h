@@ -8,6 +8,9 @@
 #ifndef QUICK_H_
 #define QUICK_H_
 
+// Quick.
+// Example:
+
 class quick {
 public:
 	quick();

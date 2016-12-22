@@ -75,6 +75,7 @@ int main(int argc, char* argv[]){
 	        cout << "Merge Sort" << endl;
 	        show_array(array_data);
 	        cout << endl;
+	        delete merge_sort_instance;
             break;
 	    }
 	    case Insert:
@@ -84,6 +85,7 @@ int main(int argc, char* argv[]){
 	        cout << "Insert Sort" << endl;
 	        show_array(array_data);
 	        cout << endl;
+	        delete insert_sort_instance;
             break;
 	    }
 	    case Quick:
@@ -93,15 +95,17 @@ int main(int argc, char* argv[]){
 	        cout << "Quick Sort" << endl;
 	        show_array(array_data);
 	        cout << endl;
+	        delete quick_sort_instance;
             break;
 	    }
 	    case Counting:
 	    {
-	        counting_sort *couting_sort_instance = new counting_sort();
-	        couting_sort_instance->counting_sort_method(array_data);
+	        counting_sort *counting_sort_instance = new counting_sort();
+	        counting_sort_instance->counting_sort_method(array_data);
 	        cout << "Counting Sort" << endl;
 	        show_array(array_data);
 	        cout << endl;
+	        delete counting_sort_instance;
             break;
 	    }
 	    case Binary:
@@ -123,6 +127,7 @@ int main(int argc, char* argv[]){
 	        node *min_value_node = binary_tree_instance->find_min(p_tree);
 	        cout << "min:" << min_value_node->key_value << endl;
 	        binary_tree_instance->destroy_tree(p_tree);
+	        delete binary_tree_instance;
             break;
 	    }
 	    case Graph:
@@ -139,6 +144,7 @@ int main(int argc, char* argv[]){
 	        graph_instance->depth_first_search(2);
 	        cout << "Following is Breadth First Traversal (starting from vertex 2) " << endl;
 	        graph_instance->breadth_first_search(2);
+	        delete graph_instance;
             break;
 	    }
 	    case Dynamic:
@@ -149,6 +155,7 @@ int main(int argc, char* argv[]){
 	        cout << "Dynamic " << endl;
 	        cout << "Length of LIS is " << dynamic_programing_instance->lis(arr, n) << endl;
 	        cout << "Length of LIS is " << dynamic_programing_instance->lis_bottom_up(arr, n) << endl;
+	        delete dynamic_programing_instance;
             break;
 	    }
 	    default:
