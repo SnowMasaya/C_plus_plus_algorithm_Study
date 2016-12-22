@@ -21,10 +21,10 @@ void insert_sort::insert_method(int *data_array){
 	int tmp;
 	int j;
 	for(int i = 1; i < ARRAY_SIZE; i++){
-		tmp = data_array[i];
-		for(j = i; j > 0 && data_array[j - 1] > tmp; j--){
-			data_array[j] = data_array[j - 1];
-		}
+	    tmp = data_array[i];
+	    for(j = i; j > 0 && data_array[j - 1] > tmp; j--){
+	    	data_array[j] = data_array[j - 1];
+	    }
 	    data_array[j] = tmp;
 	}
 }
