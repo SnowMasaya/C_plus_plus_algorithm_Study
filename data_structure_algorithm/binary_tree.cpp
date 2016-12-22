@@ -123,10 +123,10 @@ node* binary_tree::remove(node *p_tree, int remove_value){
 	    p_max_node->p_right = p_tree->p_right;
 	    delete p_tree;
 	    return p_max_node;
-	}else if(p_tree->key_value < remove_value){
-		remove(p_tree->p_left, remove_value);
+	}else if(remove_value < p_tree->key_value ){
+		p_tree->p_left = remove(p_tree->p_left, remove_value);
 	}else{
-		remove(p_tree->p_right, remove_value);
+		p_tree->p_right = remove(p_tree->p_right, remove_value);
 	}
 	return NULL;
 }

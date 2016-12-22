@@ -16,7 +16,7 @@ public:
 	graph();
 	virtual ~graph();
 	graph(int V);
-	void addEdge(int v, int w);
+	void addEdge(int v, int edge);
 	void depth_first_search(int v);
 	void breadth_first_search(int s);
 private:

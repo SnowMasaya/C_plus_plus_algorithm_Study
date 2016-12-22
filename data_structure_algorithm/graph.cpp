@@ -20,8 +20,8 @@ graph::~graph() {
 	// TODO Auto-generated destructor stub
 }
 
-void graph::addEdge(int v, int w){
-	adj[v].push_back(w);
+void graph::addEdge(int v, int edge){
+	adj[v].push_back(edge);
 }
 
 void graph::depth_first_search_util(int v, bool visited[]){
