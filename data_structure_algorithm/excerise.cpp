@@ -13,6 +13,7 @@
 #include "quick.h"
 #include "graph.h"
 #include "dynamic_programing.h"
+#include "trie_tree_node.h"
 #define ARRAY_SIZE 7
 #define MAX_WORD_SIZE 20
 #include <iostream>
@@ -26,7 +27,8 @@ enum{
 	Counting = 4,
 	Binary = 5,
 	Graph = 6,
-	Dynamic = 7
+	Dynamic = 7,
+    Trie = 8
 };
 
 excerise::excerise() {
@@ -47,7 +49,7 @@ void show_array(int *sort_data){
 int main(int argc, char* argv[]){
 
 	if(argc != 2){
-		cout << "You have to set the one arguments {Merge or Insert or Quick or Counting or Binary or Graph or Dynamic}" << endl;
+		cout << "You have to set the one arguments {Merge or Insert or Quick or Counting or Binary or Graph or Dynamic or Trie}" << endl;
 		exit(EXIT_FAILURE);
 	}
 
@@ -63,6 +65,7 @@ int main(int argc, char* argv[]){
 		switch_case["Binary"] = Binary;
 		switch_case["Graph"] = Graph;
 		switch_case["Dynamic"] = Dynamic;
+		switch_case["Trie"] = Trie;
 	}
 
 	int switch_judge = switch_case[argv[1]];
@@ -156,6 +159,28 @@ int main(int argc, char* argv[]){
 	        cout << "Length of LIS is " << dynamic_programing_instance->lis(arr, n) << endl;
 	        cout << "Length of LIS is " << dynamic_programing_instance->lis_bottom_up(arr, n) << endl;
 	        delete dynamic_programing_instance;
+            break;
+	    }
+	    case Trie:
+	    {
+	    	int n = 5, i;
+	    	char words[n][MAX_WORD_SIZE];
+	    	*words[0] = 'a';
+	    	*words[1] = 'p';
+	    	*words[2] = 'p';
+	    	*words[3] = 'l';
+	    	*words[4] = 'e';
+	    	trie_tree_node *trie_tree_node_instance = new trie_tree_node();
+	    	trie_tree_node_instance->root = new trie_tree_node();
+	    	for(i = 0; i < n; ++i){
+	    		trie_tree_node_instance->insert(words[i], i + 1);
+	    	}
+
+	    	vector<char> util;
+	    	trie_tree_node_instance->lexicographPrint(trie_tree_node_instance->root, util);
+	    	trie_tree_node_instance->removeWord(trie_tree_node_instance->root, words[0]);
+	    	trie_tree_node_instance->lexicographPrint(trie_tree_node_instance->root, util);
+	        delete trie_tree_node_instance;
             break;
 	    }
 	    default:
