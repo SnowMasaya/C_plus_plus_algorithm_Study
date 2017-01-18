@@ -7,13 +7,14 @@
 
 #ifndef MERGE_SORT_H_
 #define MERGE_SORT_H_
-#define ARRAY_SIZE 7
+#include<vector>
+using namespace std;
 
 class merge_sort {
 public:
 	merge_sort();
 	virtual ~merge_sort();
-    void merge_method(int *data_array, int left, int right);
+    void merge_method(shared_ptr<vector<int> > data_array, int left, int right);
 };
 
 #endif /* MERGE_SORT_H_ */

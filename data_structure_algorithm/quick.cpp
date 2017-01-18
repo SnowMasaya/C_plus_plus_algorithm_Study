@@ -42,7 +42,7 @@ int med3(int x, int y, int z){
 	}
 }
 
-void quick::quick_method(int *data_array, int left, int right){
+void quick::quick_method(vector<int> data_array, int left, int right){
 	if (left < right){
 		int i = left;
 		int j = right;

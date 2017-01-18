@@ -6,20 +6,6 @@
  */
 
 #include "excerise.h"
-#include "merge_sort.h"
-#include "insert_sort.h"
-#include "counting_sort.h"
-#include "binary_tree.h"
-#include "quick.h"
-#include "graph.h"
-#include "dynamic_programing.h"
-#include "trie_tree_node.h"
-#define ARRAY_SIZE 7
-#define MAX_WORD_SIZE 20
-#include <iostream>
-#include <map>
-#include <string>
-using namespace std;
 enum{
 	Merge = 1,
 	Insert = 2,
@@ -28,7 +14,8 @@ enum{
 	Binary = 5,
 	Graph = 6,
 	Dynamic = 7,
-    Trie = 8
+    Trie = 8,
+    Linear = 9
 };
 
 excerise::excerise() {
@@ -40,10 +27,11 @@ excerise::~excerise() {
 	// TODO Auto-generated destructor stub
 }
 
-void show_array(int *sort_data){
-	for(int i = 0; i < ARRAY_SIZE; ++i ){
-		cout << sort_data[i] << " ";
-	}
+template<typename T>
+void show_array(shared_ptr<vector<T> > sort_data){
+    for(auto it = sort_data->begin(); it != sort_data->end(); ++it){
+    	cout << *it << " ";
+    }
 }
 
 int main(int argc, char* argv[]){
@@ -53,7 +41,9 @@ int main(int argc, char* argv[]){
 		exit(EXIT_FAILURE);
 	}
 
-	int array_data[ARRAY_SIZE] = {0, 3, 2, 4, 5, 1, 9};
+	static const int arr[] = {0, 3, 2, 4, 5, 1, 9};
+	vector<int> array_data (arr, arr + sizeof(arr) / sizeof(arr[0]) );
+   	auto share_ptr_array_data = make_shared<vector<int> >(array_data);
 	static map<string, int> switch_case;
 
 	if(switch_case.empty())
@@ -66,6 +56,7 @@ int main(int argc, char* argv[]){
 		switch_case["Graph"] = Graph;
 		switch_case["Dynamic"] = Dynamic;
 		switch_case["Trie"] = Trie;
+		switch_case["Linear"] = Linear;
 	}
 
 	int switch_judge = switch_case[argv[1]];
@@ -73,42 +64,39 @@ int main(int argc, char* argv[]){
 	switch(switch_judge){
 	    case Merge:
 	    {
-	        merge_sort *merge_sort_instance = new merge_sort();
-	        merge_sort_instance->merge_method(array_data, 0, ARRAY_SIZE);
+	    	unique_ptr<merge_sort> merge_sort_instance(new merge_sort);
+	        merge_sort_instance->merge_method(share_ptr_array_data, 0, array_data.size());
 	        cout << "Merge Sort" << endl;
-	        show_array(array_data);
+	        show_array(share_ptr_array_data);
 	        cout << endl;
-	        delete merge_sort_instance;
             break;
 	    }
 	    case Insert:
 	    {
-	        insert_sort *insert_sort_instance = new insert_sort();
-	        insert_sort_instance->insert_method(array_data);
+	    	unique_ptr<insert_sort> insert_sort_instance(new insert_sort);
+	        insert_sort_instance->insert_method(share_ptr_array_data);
 	        cout << "Insert Sort" << endl;
-	        show_array(array_data);
+	        show_array(share_ptr_array_data);
 	        cout << endl;
-	        delete insert_sort_instance;
             break;
 	    }
 	    case Quick:
 	    {
 	        quick *quick_sort_instance = new quick();
-	        quick_sort_instance->quick_method(array_data, 0, ARRAY_SIZE - 1);
+	        quick_sort_instance->quick_method(array_data, 0, array_data.size() - 1);
 	        cout << "Quick Sort" << endl;
-	        show_array(array_data);
+	        //show_array(array_data);
 	        cout << endl;
 	        delete quick_sort_instance;
             break;
 	    }
 	    case Counting:
 	    {
-	        counting_sort *counting_sort_instance = new counting_sort();
-	        counting_sort_instance->counting_sort_method(array_data);
+	        unique_ptr<counting_sort> counting_sort_instance(new counting_sort);
+	        counting_sort_instance->counting_sort_method(share_ptr_array_data);
 	        cout << "Counting Sort" << endl;
-	        show_array(array_data);
+	        show_array(share_ptr_array_data);
 	        cout << endl;
-	        delete counting_sort_instance;
             break;
 	    }
 	    case Binary:

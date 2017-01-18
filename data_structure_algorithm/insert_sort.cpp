@@ -6,6 +6,8 @@
  */
 
 #include "insert_sort.h"
+#include<iostream>
+using namespace std;
 #define ARRAY_SIZE 7
 
 insert_sort::insert_sort() {
@@ -17,14 +19,13 @@ insert_sort::~insert_sort() {
 	// TODO Auto-generated destructor stub
 }
 
-void insert_sort::insert_method(int *data_array){
-	int tmp;
+void insert_sort::insert_method(shared_ptr<vector<int> > data_array){
 	int j;
-	for(int i = 1; i < ARRAY_SIZE; i++){
-	    tmp = data_array[i];
-	    for(j = i; j > 0 && data_array[j - 1] > tmp; j--){
-	    	data_array[j] = data_array[j - 1];
+	for(int i = 0; i < data_array->size(); ++i){
+	    auto tmp = data_array->at(i);
+	    for(j = i; j > 0 && data_array->at(j - 1) > tmp; j--){
+	    	data_array->at(j) = data_array->at(j - 1);
 	    }
-	    data_array[j] = tmp;
+	    data_array->at(j) = tmp;
 	}
 }
